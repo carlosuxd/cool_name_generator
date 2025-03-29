@@ -1,0 +1,11 @@
+{
+  "name": "my-figma-plugin",
+  "version": "1.0.0",
+  "description": "A simple Figma plugin that creates shapes",
+  "main": "code.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "author": "",
+  "license": "MIT"
+} 

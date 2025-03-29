@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    select, button {
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 1px solid #E5E5E5;
+      width: 100%;
+      font-size: 14px;
+    }
+    button {
+      background-color: #18A0FB;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0D8DE3;
+    }
+    .label {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    .loading {
+      text-align: center;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <div class="label">Name Type</div>
+      <select id="nameType">
+        <option value="first">First Name Only</option>
+        <option value="last">Last Name Only</option>
+        <option value="full">Full Name</option>
+      </select>
+    </div>
+    
+    <div>
+      <div class="label">Character Category</div>
+      <select id="category">
+        <option value="" disabled>Loading categories...</option>
+      </select>
+    </div>
+
+    <button id="replace">Replace Selected Text</button>
+  </div>
+
+  <script>
+    // Request categories when the UI loads
+    parent.postMessage({ pluginMessage: { type: 'get-categories' } }, '*');
+
+    // Listen for categories from the plugin
+    window.onmessage = (event) => {
+      const message = event.data.pluginMessage;
+      
+      if (message.type === 'categories-loaded') {
+        const categorySelect = document.getElementById('category');
+        categorySelect.innerHTML = ''; // Clear loading message
+        
+        message.categories.forEach(category => {
+          const option = document.createElement('option');
+          option.value = category.id;
+          option.textContent = category.name;
+          categorySelect.appendChild(option);
+        });
+      }
+    };
+
+    document.getElementById('replace').onclick = () => {
+      const nameType = document.getElementById('nameType').value;
+      const category = document.getElementById('category').value;
+      
+      if (!category) {
+        alert('Please select a category');
+        return;
+      }
+
+      parent.postMessage({ 
+        pluginMessage: { 
+          type: 'replace-text',
+          nameType,
+          category
+        } 
+      }, '*');
+    };
+  </script>
+</body>
+</html> 
