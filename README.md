@@ -26,8 +26,6 @@ A Figma plugin that helps you generate random character names from various categ
 ## Categories
 
 ### Video Game Characters
-- Mario Mario
-- Link Link
 - Samus Aran
 - Cloud Strife
 - Lara Croft
@@ -45,21 +43,13 @@ A Figma plugin that helps you generate random character names from various categ
 - Indiana Jones characters
 - And more...
 
-## Installation
+## Manual Installation
 
 1. Open Figma
 2. Go to Plugins > Development > New Plugin
 3. Select "Import plugin from manifest"
 4. Choose the manifest.json file from this plugin
 5. The plugin will be installed and ready to use
-
-## Development
-
-This plugin is built using vanilla JavaScript and HTML. The main components are:
-
-- `manifest.json`: Plugin configuration
-- `code.js`: Main plugin logic
-- `ui.html`: User interface
 
 ## Support
 
