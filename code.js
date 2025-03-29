@@ -11,7 +11,11 @@ const categories = [
       { first: "Lara", last: "Croft" },
       { first: "Nathan", last: "Drake" },
       { first: "Master", last: "Chief" },
-      
+      { first: "Chris", last: "Redfield" },
+      { first: "Leon", last: "Kennedy" },
+      { first: "Ada", last: "Wong" },
+      { first: "Albert", last: "Wesker" },
+      { first: "Barry", last: "Burton" }
     ]
   },
   {
@@ -29,7 +33,6 @@ const categories = [
       { first: "Stephen", last: "Strange" },
       { first: "T'Challa", last: "T'Challa" },
       { first: "Wanda", last: "Maximoff" },
-      { first: "Pietro", last: "Maximoff" },
       { first: "Sam", last: "Wilson" },
       { first: "James", last: "Rhodes" },
       { first: "Clint", last: "Barton" },
@@ -85,10 +88,8 @@ const categories = [
       { first: "Albus", last: "Dumbledore" },
       { first: "Severus", last: "Snape" },
       // The Matrix
-      { first: "Neo", last: "Anderson" },
-      { first: "Morpheus", last: "Morpheus" },
-      { first: "Trinity", last: "Trinity" },
-      { first: "Agent", last: "Smith" },
+      { first: "Thomas", last: "Anderson" },
+      { first: "John", last: "Smith" },
       // Indiana Jones
       { first: "Indiana", last: "Jones" },
       { first: "Marion", last: "Ravenwood" },
@@ -108,11 +109,18 @@ const categories = [
       // Forrest Gump
       { first: "Forrest", last: "Gump" },
       { first: "Jenny", last: "Curran" },
-      { first: "Lieutenant", last: "Dan" },
       // The Dark Knight
-      { first: "Joker", last: "Joker" },
+      { first: "Bruce", last: "Wayne" },
       { first: "Harvey", last: "Dent" },
-      { first: "Alfred", last: "Pennyworth" }
+      { first: "Alfred", last: "Pennyworth" },
+      { first: "Rachel", last: "Dowes" },
+      { first: "Salvatore", last: "Maroni" },
+      { first: "Carmine", last: "Falcone" },
+      { first: "Jim", last: "Gordon" },
+      { first: "Harleen", last: "Quinzel" },
+      { first: "Edward", last: "Nigma" },
+      { first: "Harley", last: "Quinzel" },
+      
     ]
   }
 ];
