@@ -1,4 +1,4 @@
-figma.showUI(__html__, { width: 300, height: 300 });
+figma.showUI(__html__, { width: 300, height: 400 });
 
 // Category data
 const categories = [
@@ -129,14 +129,23 @@ function getRandomCharacter(characters) {
   return characters[Math.floor(Math.random() * characters.length)];
 }
 
-function formatName(character, nameType) {
+function formatName(character, nameType, nameFormat) {
   switch (nameType) {
     case 'first':
       return character.first;
     case 'last':
       return character.last;
     case 'full':
-      return `${character.first} ${character.last}`;
+      switch (nameFormat) {
+        case 'last_first':
+          return `${character.last}, ${character.first}`;
+        case 'first_last':
+          return `${character.first} ${character.last}`;
+        case 'first_last_initial':
+          return `${character.first} ${character.last[0]}.`;
+        default:
+          return `${character.first} ${character.last}`;
+      }
     default:
       return `${character.first} ${character.last}`;
   }
@@ -166,7 +175,7 @@ figma.ui.onmessage = async (msg) => {
     for (const node of selection) {
       if (node.type === "TEXT") {
         const character = getRandomCharacter(category.characters);
-        const newName = formatName(character, msg.nameType);
+        const newName = formatName(character, msg.nameType, msg.nameFormat);
         
         // Load the font before setting the text
         await figma.loadFontAsync(node.fontName);

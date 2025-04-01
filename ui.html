@@ -36,19 +36,25 @@
       text-align: center;
       color: #666;
     }
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .radio-label input[type="radio"] {
+      margin: 0;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div>
-      <div class="label">Name Type</div>
-      <select id="nameType">
-        <option value="first">First Name Only</option>
-        <option value="last">Last Name Only</option>
-        <option value="full">Full Name</option>
-      </select>
-    </div>
-    
     <div>
       <div class="label">Character Category</div>
       <select id="category">
@@ -56,6 +62,33 @@
       </select>
     </div>
 
+    <div>
+      <div class="label">Name Type</div>
+      <select id="nameType">
+        <option value="full" selected>Full Name</option>
+        <option value="first">First Name Only</option>
+        <option value="last">Last Name Only</option>
+      </select>
+    </div>
+    
+    <div id="nameFormatSection" style="display: block;">
+      <div class="label">Full Name Format</div>
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" name="nameFormat" value="first_last" checked>
+          "John Smith"
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="nameFormat" value="last_first">
+          "Smith, John"
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="nameFormat" value="first_last_initial">
+          "John S."
+        </label>
+      </div>
+    </div>
+    
     <button id="replace">Replace Selected Text</button>
   </div>
 
@@ -83,6 +116,7 @@
     document.getElementById('replace').onclick = () => {
       const nameType = document.getElementById('nameType').value;
       const category = document.getElementById('category').value;
+      const nameFormat = document.querySelector('input[name="nameFormat"]:checked').value;
       
       if (!category) {
         alert('Please select a category');
@@ -93,9 +127,16 @@
         pluginMessage: { 
           type: 'replace-text',
           nameType,
-          category
+          category,
+          nameFormat
         } 
       }, '*');
+    };
+
+    // Show/hide name format section based on name type selection
+    document.getElementById('nameType').onchange = (e) => {
+      const nameFormatSection = document.getElementById('nameFormatSection');
+      nameFormatSection.style.display = e.target.value === 'full' ? 'block' : 'none';
     };
   </script>
 </body>
