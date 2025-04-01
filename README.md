@@ -11,7 +11,10 @@ A Figma plugin that helps you generate random character names from various categ
 - Choose between different name formats:
   - First name only
   - Last name only
-  - Full name
+  - Full name with multiple format options:
+    - First Name Last Name (e.g., "John Smith")
+    - Last Name, First Name (e.g., "Smith, John")
+    - First Name Last Initial (e.g., "John S.")
 - Easy to use interface
 - Works with any text layer in your Figma design
 
@@ -20,7 +23,9 @@ A Figma plugin that helps you generate random character names from various categ
 1. Select one or more text layers in your Figma design
 2. Open the plugin from Plugins > Development > Cool Names Generator
 3. Select a category from the dropdown menu
-4. Choose your preferred name format (First, Last, or Full)
+4. Choose your preferred name format:
+   - For full names, select one of the available format options
+   - For first or last names only, select the corresponding option
 5. Click "Generate" to replace the selected text with random names from your chosen category
 
 ## Categories
