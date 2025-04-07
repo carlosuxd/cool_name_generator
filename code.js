@@ -9,13 +9,21 @@ const categories = [
       { first: "Samus", last: "Aran" },
       { first: "Cloud", last: "Strife" },
       { first: "Lara", last: "Croft" },
+      { first: "Solid", last: "Snake" },
       { first: "Nathan", last: "Drake" },
       { first: "Master", last: "Chief" },
       { first: "Chris", last: "Redfield" },
+      { first: "Claire", last: "Redfield" },
       { first: "Leon", last: "Kennedy" },
       { first: "Ada", last: "Wong" },
       { first: "Albert", last: "Wesker" },
-      { first: "Barry", last: "Burton" }
+      { first: "Barry", last: "Burton" },
+      { first: "Gordon", last: "Freeman" },
+      { first: "Trevor", last: "Philips" },
+      { first: "Arthur", last: "Hastings" },
+      { first: "Jill", last: "Valentine" },
+      { first: "Tommy", last: "Vercetti" },
+      { first: "Isaac", last: "Clarke" }
     ]
   },
   {
@@ -31,7 +39,6 @@ const categories = [
       { first: "Scott", last: "Lang" },
       { first: "Bruce", last: "Banner" },
       { first: "Stephen", last: "Strange" },
-      { first: "T'Challa", last: "T'Challa" },
       { first: "Wanda", last: "Maximoff" },
       { first: "Sam", last: "Wilson" },
       { first: "James", last: "Rhodes" },
@@ -57,18 +64,31 @@ const categories = [
       { first: "Jason", last: "Todd" },
       { first: "Tim", last: "Drake" },
       { first: "Damian", last: "Wayne" },
-      { first: "Kara", last: "Zor-El" },
+      { first: "Kara", last: "Zorel" },
       { first: "Billy", last: "Batson" },
       { first: "Ray", last: "Palmer" },
       { first: "Carter", last: "Hall" },
       { first: "Dinah", last: "Lance" },
-      { first: "Zatanna", last: "Zatara" }
+
     ]
   },
   {
     id: 'movies',
     name: 'Famous Movie Characters',
     characters: [
+      { first: "Indiana", last: "Jones" },
+      { first: "James", last: "Bond" },
+      { first: "Ellen", last: "Ripley" },
+      { first: "Tony", last: "Montana" },
+      { first: "Rocky", last: "Balboa" },
+      { first: "John", last: "Wick" },
+      { first: "Jason", last: "Bourne" },
+      { first: "Sherlock", last: "Holmes" },
+      { first: "Erin", last: "Brockovich" },
+      { first: "Tyler", last: "Durden" },
+      { first: "Clarice", last: "Starling" },
+      { first: "Hannibal", last: "Lecter" },
+      { first: "Katniss", last: "Everdeen" },
       // Star Wars
       { first: "Luke", last: "Skywalker" },
       { first: "Darth", last: "Vader" },
@@ -77,10 +97,8 @@ const categories = [
       { first: "Obi-Wan", last: "Kenobi" },
       // Lord of the Rings
       { first: "Frodo", last: "Baggins" },
-      { first: "Gandalf", last: "the Grey" },
       { first: "Aragorn", last: "Strider" },
       { first: "Legolas", last: "Greenleaf" },
-      { first: "Gimli", last: "son of Glóin" },
       // Harry Potter
       { first: "Harry", last: "Potter" },
       { first: "Hermione", last: "Granger" },
@@ -93,7 +111,7 @@ const categories = [
       // Indiana Jones
       { first: "Indiana", last: "Jones" },
       { first: "Marion", last: "Ravenwood" },
-      { first: "Henry", last: "Jones Sr." },
+      { first: "Henry", last: "Jones" },
       // Back to the Future
       { first: "Marty", last: "McFly" },
       { first: "Doc", last: "Brown" },
@@ -117,7 +135,6 @@ const categories = [
       { first: "Salvatore", last: "Maroni" },
       { first: "Carmine", last: "Falcone" },
       { first: "Jim", last: "Gordon" },
-      { first: "Harleen", last: "Quinzel" },
       { first: "Edward", last: "Nigma" },
       { first: "Harley", last: "Quinzel" },
       
