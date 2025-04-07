@@ -23,7 +23,46 @@ const categories = [
       { first: "Arthur", last: "Hastings" },
       { first: "Jill", last: "Valentine" },
       { first: "Tommy", last: "Vercetti" },
-      { first: "Isaac", last: "Clarke" }
+      { first: "Isaac", last: "Clarke" },
+      { first: "Trevor", last: "Belmont" },
+      { first: "Simon", last: "Belmont" },
+      { first: "Hank", last: "Anderson" },
+      { first: "Todd", last: "Williams" },
+      { first: "Rose", last: "Chapman" },
+      { first: "Adam", last: "Chapman" },
+      { first: "Gavin", last: "Reed" },
+      { first: "Elijah", last: "Kamski" },
+      { first: "Ethan", last: "Mars" },
+      { first: "Shaun", last: "Mars" },
+      { first: "Madison", last: "Paige" },
+      { first: "Norman", last: "Jayden" },
+      { first: "Scott", last: "Shelby" },
+      { first: "Lauren", last: "Winter" },
+      { first: "Grace", last: "Mars" },
+      { first: "Carter", last: "Blake" },
+      { first: "Charles", last: "Kramer" },
+      // Silent Hill 1
+      { first: "Harry", last: "Mason" },              
+      { first: "Cheryl", last: "Mason" },
+      { first: "Cybil", last: "Bennett" },
+      { first: "Dahlia", last: "Gillespie" },
+      { first: "Alessa", last: "Gillespie" },
+      // Silent Hill 2
+      { first: "James", last: "Sunderland" },          
+      { first: "Mary", last: "Sunderland" },
+      { first: "Maria", last: "" },
+      { first: "Angela", last: "Orosco" },
+      { first: "Eddie", last: "Dombrowski" },
+      { first: "Laura", last: "" },
+      // Silent Hill 3
+      { first: "Heather", last: "Mason" },
+      { first: "Douglas", last: "Cartland" },
+      { first: "Claudia", last: "Wolf" },
+      { first: "Vincent", last: "Smith" },
+      // Resident Evil 7, Village
+      { first: "Ethan", last: "Winters" },            
+      { first: "Mia", last: "Winters" },
+      { first: "Meryl", last: "Silverburgh" }
     ]
   },
   {
