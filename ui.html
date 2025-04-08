@@ -4,42 +4,64 @@
   <style>
     body {
       font-family: Inter, sans-serif;
-      padding: 20px;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
     }
     .container {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 24px;
+      padding: 32px;
+      height: 100%;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .button-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 32px;
+      background: white;
+      border-top: 1px solid #E5E5E5;
     }
     select, button {
-      padding: 8px 16px;
+      padding: 8px 12px;
       border-radius: 6px;
       border: 1px solid #E5E5E5;
       width: 100%;
       font-size: 14px;
-    }
-    button {
-      background-color: #18A0FB;
-      color: white;
-      border: none;
+      appearance: none;
+      background: white url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23333333' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat;
+      background-position: right 12px center;
       cursor: pointer;
     }
+    button {
+      background: #0D99FF;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-weight: 500;
+    }
     button:hover {
-      background-color: #0D8DE3;
+      background: #0088EE;
     }
     .label {
       font-size: 12px;
-      color: #666;
-      margin-bottom: 4px;
-    }
-    .loading {
-      text-align: center;
-      color: #666;
+      color: #333333;
+      margin-bottom: 8px;
     }
     .radio-group {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 12px;
     }
     .radio-label {
       display: flex;
@@ -47,55 +69,63 @@
       gap: 8px;
       font-size: 14px;
       cursor: pointer;
+      color: #333333;
     }
     .radio-label input[type="radio"] {
       margin: 0;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
     }
-    .info-text {
-      font-size: 12px;
-      color: #666;
-      margin-top: 8px;
-      font-style: italic;
+    .field-group {
+      display: flex;
+      flex-direction: column;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div>
-      <div class="label">Character Category</div>
-      <select id="category">
-        <option value="" disabled>Loading categories...</option>
-      </select>
-    </div>
+    <div class="content">
+      <div class="field-group">
+        <div class="label">Category</div>
+        <select id="category">
+          <option value="" disabled>Loading categories...</option>
+        </select>
+      </div>
 
-    <div>
-      <div class="label">Name Type</div>
-      <select id="nameType">
-        <option value="full" selected>Full Name</option>
-        <option value="first">First Name Only</option>
-        <option value="last">Last Name Only</option>
-      </select>
-    </div>
-    
-    <div id="nameFormatSection" style="display: block;">
-      <div class="label">Full Name Format</div>
-      <div class="radio-group">
-        <label class="radio-label">
-          <input type="radio" name="nameFormat" value="first_last" checked>
-          "John Smith"
-        </label>
-        <label class="radio-label">
-          <input type="radio" name="nameFormat" value="last_first">
-          "Smith, John"
-        </label>
-        <label class="radio-label">
-          <input type="radio" name="nameFormat" value="first_last_initial">
-          "John S."
-        </label>
+      <div id="nameOptions">
+        <div class="field-group">
+          <div class="label">Name Type</div>
+          <select id="nameType">
+            <option value="full" selected>Full Name</option>
+            <option value="first">First Name Only</option>
+            <option value="last">Last Name Only</option>
+          </select>
+        </div>
+        
+        <div id="nameFormatSection" class="field-group" style="margin-top: 24px;">
+          <div class="label">Format</div>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="nameFormat" value="first_last" checked>
+              "John Smith"
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="nameFormat" value="last_first">
+              "Smith, John"
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="nameFormat" value="first_last_initial">
+              "John S."
+            </label>
+          </div>
+        </div>
       </div>
     </div>
-    
-    <button id="replace">Replace Selected Text</button>
+
+    <div class="button-container">
+      <button id="replace">Replace Selected Text</button>
+    </div>
   </div>
 
   <script>
@@ -113,15 +143,40 @@
         message.categories.forEach(category => {
           const option = document.createElement('option');
           option.value = category.id;
-          option.textContent = category.name;
+          
+          // Create the option content with icon
+          const icon = getCategoryIcon(category.id);
+          option.innerHTML = `
+            <div class="category-option">
+              <span class="category-icon">${icon}</span>
+              <span>${category.name}</span>
+            </div>
+          `;
+          
           categorySelect.appendChild(option);
         });
       }
     };
 
+    function getCategoryIcon(categoryId) {
+      switch (categoryId) {
+        case 'gaming':
+          return '🎮';
+        case 'superhero':
+          return '🦸';
+        case 'movies':
+          return '🎬';
+        case 'sports':
+          return '⚽';
+        default:
+          return '📝';
+      }
+    }
+
     document.getElementById('replace').onclick = () => {
-      const nameType = document.getElementById('nameType').value;
       const category = document.getElementById('category').value;
+      const nameOptions = document.getElementById('nameOptions');
+      const nameType = document.getElementById('nameType').value;
       const nameFormat = document.querySelector('input[name="nameFormat"]:checked').value;
       
       if (!category) {
@@ -129,20 +184,30 @@
         return;
       }
 
-      parent.postMessage({ 
-        pluginMessage: { 
-          type: 'replace-text',
-          nameType,
-          category,
-          nameFormat
-        } 
-      }, '*');
+      const message = {
+        type: 'replace-text',
+        category
+      };
+
+      // Only include name type and format if not sports category
+      if (category !== 'sports') {
+        message.nameType = nameType;
+        message.nameFormat = nameFormat;
+      }
+
+      parent.postMessage({ pluginMessage: message }, '*');
     };
 
     // Show/hide name format section based on name type selection
     document.getElementById('nameType').onchange = (e) => {
       const nameFormatSection = document.getElementById('nameFormatSection');
       nameFormatSection.style.display = e.target.value === 'full' ? 'block' : 'none';
+    };
+
+    // Show/hide name options based on category selection
+    document.getElementById('category').onchange = (e) => {
+      const nameOptions = document.getElementById('nameOptions');
+      nameOptions.style.display = e.target.value === 'sports' ? 'none' : 'block';
     };
   </script>
 </body>

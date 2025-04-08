@@ -178,6 +178,36 @@ const categories = [
       { first: "Harley", last: "Quinzel" },
       
     ]
+  },
+  {
+    id: 'sports',
+    name: 'Sport Team Names',
+    characters: [
+      { first: "Thunder", last: "Strikers" },
+      { first: "Phoenix", last: "Legends" },
+      { first: "Dragon", last: "Warriors" },
+      { first: "Eagle", last: "Dynasty" },
+      { first: "Lion", last: "Guardians" },
+      { first: "Crimson", last: "Blazers" },
+      { first: "Iron", last: "Wolves" },
+      { first: "Shadow", last: "Falcons" },
+      { first: "Golden", last: "Cyclones" },
+      { first: "Frost", last: "Titans" },
+      { first: "Blazing", last: "Comets" },
+      { first: "Storm", last: "Breakers" },
+      { first: "Silver", last: "Raiders" },
+      { first: "Phantom", last: "Sharks" },
+      { first: "Lunar", last: "Chargers" },
+      { first: "Scarlet", last: "Hawks" },
+      { first: "Steel", last: "Vipers" },
+      { first: "Electric", last: "Rhinos" },
+      { first: "Obsidian", last: "Knights" },
+      { first: "Solar", last: "Predators" },
+      { first: "Neon", last: "Guardians" },
+      { first: "Midnight", last: "Prowlers" },
+      { first: "Tornado", last: "Drifters" },
+      { first: "Blitz", last: "Juggernauts" }
+    ]
   }
 ];
 
@@ -186,6 +216,13 @@ function getRandomCharacter(characters) {
 }
 
 function formatName(character, nameType, nameFormat) {
+  // For sports team names, always return the full name
+  if (character.first === "Thunder" || character.first === "Phoenix" || 
+      character.first === "Dragon" || character.first === "Eagle" || 
+      character.first === "Lion") {
+    return `${character.first} ${character.last}`;
+  }
+
   switch (nameType) {
     case 'first':
       return character.first;
