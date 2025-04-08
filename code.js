@@ -183,7 +183,4 @@ figma.ui.onmessage = async (msg) => {
       }
     }
   }
-  
-  // Make sure to close the plugin when we're done
-  figma.closePlugin();
 }; 
